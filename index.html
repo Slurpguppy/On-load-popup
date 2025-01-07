@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://ui-library-65zn.onrender.com/style.css">
     <style>
 .onload {
     position: fixed;
@@ -29,44 +30,82 @@
     height: 400px;
     color: #e8e8e8;
 }
-.closeonload {
+
+.onclick {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+.onclick-content {
     position: relative;
-    top: 75%;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #e8e8e8;
-    background: #8d2d2d;
+    background: #171717;
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: large;
+    width: 600px;
+    height: 400px;
+    color: #e8e8e8;
 }
 
-.closeonload:hover {
-    background: #8d2d2d5b;
-}
     </style>
 </head>
 <body>
+
     <div class="onload" id="onload">
   <div class="onload-content">
-      <span id="closeonload" class="closeonload">Start</span>
+      <button id="closeonload" class=" btn btn-lg" style="position: relative; top: 75%;">Close</button>
       <h2>👋 Welcome!</h2>
-      <p>This is a web based, inline code editor built for web development.</p>
-      <p>Build whatever you like using HTML, CSS and JavaScript.</p>
+      <p>This is a popup that opens when the page is loaded.</p>
   </br>
-      <p>Currently, only inline is supported.</p>
+      <p>Click the close button to close.</p>
+  </div>
+</div>
+
+<button id="openonclick" class=" btn btn-sm">Open</button>
+
+<div class="onclick" id="onclick">
+  <div class="onclick-content">
+      <button id="closeonclick" class=" btn btn-lg" style="position: relative; top: 75%;">Close</button>
+      <h2>👋 Welcome!</h2>
+      <p>This is a popup that opens when the button is clicked.</p>
+  </br>
+      <p>Click the close button to close.</p>
   </div>
 </div>
     <script>
 document.addEventListener("DOMContentLoaded", function() {
     const onload = document.getElementById("onload");
     const closeonload = document.getElementById("closeonload");
+    const openonload = document.getElementById("openonload");
     onload.style.display = "flex";
     closeonload.addEventListener("click", function() {
         onload.style.display = "none";
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const onclick = document.getElementById("onclick");
+    const closeonclick = document.getElementById("closeonclick");
+    const openonclick = document.getElementById("openonclick");
+    onclick.style.display = "none";
+    closeonclick.addEventListener("click", function() {
+        onclick.style.display = "none";
+    });
+    openonclick.addEventListener("click", function() {
+        onclick.style.display = "flex";
+    });
+});
+
+
     </script>
 </body>
 </html>
